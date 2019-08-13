@@ -4,11 +4,14 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import BoxScreen from '../screens/BoxScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import CounterScreen from '../screens/CounterScreen';
 import ColorGeneratorScreen from '../screens/ColorGeneratorScreen';
 import CustomColorScreen from '../screens/CustomColorScreen';
+import CustomColorScreenReducer from '../screens/CustomColorScreenReducer';
+import DisplayNameScreen from '../screens/DisplayNameScreen';
+import StylingRulesScreen from '../screens/StylingRulesScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -21,6 +24,8 @@ const HomeStack = createStackNavigator(
     Counter: CounterScreen,
     ColorGenerator: ColorGeneratorScreen,
     CustomColor: CustomColorScreen,
+    CustomColorReducer: CustomColorScreenReducer,
+    DisplayName: DisplayNameScreen
   },
   config
 );
@@ -41,21 +46,22 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
-const LinksStack = createStackNavigator(
+const StylingStack = createStackNavigator(
   {
-    Links: LinksScreen,
+    BoxScreen: BoxScreen,
+    StylingRules: StylingRulesScreen,
   },
   config
 );
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+StylingStack.navigationOptions = {
+  tabBarLabel: 'Styling',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
   ),
 };
 
-LinksStack.path = '';
+StylingStack.path = '';
 
 const SettingsStack = createStackNavigator(
   {
@@ -75,7 +81,7 @@ SettingsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  LinksStack,
+  StylingStack,
   SettingsStack,
 });
 

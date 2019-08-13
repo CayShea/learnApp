@@ -18,9 +18,11 @@ export default class HomeScreen extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.welcomeContainer}>
-        <Button title='Counter' onPress={() => this.props.navigation.navigate('Counter')}/>
+        <Button style={styles.button} title='Counter' onPress={() => this.props.navigation.navigate('Counter')}/>
         <Button title='Color Generator' onPress={() => this.props.navigation.navigate('ColorGenerator')}/>
-        <Button title='Custom Color' onPress={() => this.props.navigation.navigate('CustomColor')}/>
+        <Button title='Custom Color with useState' onPress={() => this.props.navigation.navigate('CustomColor')}/>
+        <Button title='Custom Color with useRouter' onPress={() => this.props.navigation.navigate('CustomColorReducer')}/>
+        <Button title='Display Name' onPress={() => this.props.navigation.navigate('DisplayName')}/>
         </View>
       </View>
     );
@@ -32,6 +34,10 @@ HomeScreen.navigationOptions = {
 
 
 const styles = StyleSheet.create({
+  button: {
+    margin: 30,
+    flex: 1
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',

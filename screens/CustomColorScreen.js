@@ -10,7 +10,7 @@ const CustomColorScreen = () => {
     //variable for incrementing color
     const COLOR_INCREMENT = 10;
 
-    //Setting state here:
+    //Setting state here: 
     const [ red, setRed ] = useState(0);
     const [ green, setGreen ] = useState(0);
     const [ blue, setBlue ] = useState(0);
@@ -20,7 +20,7 @@ const CustomColorScreen = () => {
         // 'color' === 'red', 'green' or 'blue'
         // 'change' = the amount changed
         //Using both a switch statement and a ternary operator below, rather than lots of lengthy IF statements
-        
+
         switch(color){
             case 'red':
                     (red + change < 0 || red + change > 255) ?  null : setRed(red + change)    
@@ -48,7 +48,10 @@ const CustomColorScreen = () => {
                 color="Blue"
                 onIncrease={() => setColor('blue',COLOR_INCREMENT)}
                 onDecrease={() => setColor('blue', -1*COLOR_INCREMENT)}/>
-           <View style={{ height: 100, width: 100, backgroundColor: `rgb(${red},${green},${blue})` }}/>
+           <View style={{ 
+               height: 100, 
+               width: 100, 
+               backgroundColor: `rgb(${red},${green},${blue})` }}/>
         </View>
     );
 };
